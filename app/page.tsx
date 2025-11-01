@@ -1,6 +1,7 @@
 import { RenHeader } from "@/components/github-header"
 import { HeroSection } from "@/components/hero-section"
 import { CopilotMockup } from "@/components/copilot-mockup"
+import { Footer } from "@/components/footer"
 
 export default function Page() {
   return (
@@ -8,6 +9,7 @@ export default function Page() {
       <RenHeader />
       <HeroSection />
       <CopilotMockup />
+      <Footer />
     </div>
   )
 }

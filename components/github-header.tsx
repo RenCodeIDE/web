@@ -1,22 +1,80 @@
-import { Button } from "@/components/ui/button"
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/auth-context";
+import { Button } from "@/components/ui/button";
 
 export function RenHeader() {
+  const { user, logout, loading } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push("/");
+  };
+
   return (
     <header className="border-b border-border/40 bg-black/40 backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
-              <span className="text-lg font-bold text-background">R</span>
-            </div>
-            <span className="text-xl font-semibold text-foreground">Ren IDE</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/code.png"
+              alt="Ren IDE"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+              style={{
+                background: "transparent",
+                imageRendering: "crisp-edges",
+              }}
+            />
+            <span className="text-xl font-semibold text-foreground">
+              Ren IDE
+            </span>
+          </Link>
 
-          <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90 font-semibold">
-            Join the waitlist
-          </Button>
+          <div className="flex items-center gap-3">
+            {loading ? (
+              <div className="h-10 w-20" />
+            ) : user ? (
+              <>
+                <Link href="/dashboard">
+                  <Button variant="ghost" size="lg">
+                    Dashboard
+                  </Button>
+                </Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={handleLogout}
+                  className="bg-foreground text-background hover:bg-foreground/90 font-semibold"
+                >
+                  Log out
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link href="/login">
+                  <Button variant="ghost" size="lg">
+                    Log in
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button
+                    size="lg"
+                    className="bg-foreground text-background hover:bg-foreground/90 font-semibold"
+                  >
+                    Sign up
+                  </Button>
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </header>
-  )
+  );
 }
