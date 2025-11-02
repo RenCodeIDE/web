@@ -22,6 +22,11 @@ class ApiClient {
     options: RequestInit = {}
   ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
+    
+    // Debug logging in development
+    if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+      console.log(`[API] ${options.method || "GET"} ${url}`);
+    }
 
     // Only set Content-Type if there's a body
     const hasBody = options.body !== undefined;

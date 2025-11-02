@@ -20,7 +20,7 @@ export function Footer() {
             <span className="text-xl font-semibold text-foreground">Ren IDE</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2024 Ren IDE. All rights reserved.
+            © 2025 Ren IDE. All rights reserved.
           </p>
         </div>
       </div>

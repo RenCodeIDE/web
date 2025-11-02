@@ -33,7 +33,7 @@ export function CopilotMockup() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-foreground rounded-lg bg-muted/30 backdrop-blur-sm px-4 py-3 border border-border/30">
-                        Write a set of unit test functions for the selected code
+                        Make my unit tests more precise
                       </p>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import Link from "next/link";
@@ -15,7 +15,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/otp-input";
 
-export default function VerifyPage() {
+function VerifyForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
@@ -141,5 +141,22 @@ export default function VerifyPage() {
         )}
       </div>
     </AuthCard>
+  );
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={
+      <AuthCard
+        title="Verify your email"
+        description="Enter the verification code sent to your email"
+      >
+        <div className="space-y-6">
+          <div className="h-12 w-full animate-pulse bg-muted rounded" />
+        </div>
+      </AuthCard>
+    }>
+      <VerifyForm />
+    </Suspense>
   );
 }

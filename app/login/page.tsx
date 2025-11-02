@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,7 +21,7 @@ const loginSchema = z.object({
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { login, updateUser } = useAuth();
@@ -46,7 +46,7 @@ export default function LoginPage() {
     try {
       await login(data.email, data.password);
       toast.success("Logged in successfully!");
-      
+
       // Check if user came from waitlist flow
       const joinWaitlist = searchParams.get("joinWaitlist");
       if (joinWaitlist === "true") {
@@ -60,7 +60,7 @@ export default function LoginPage() {
           console.error("Failed to join waitlist:", error);
         }
       }
-      
+
       router.push("/dashboard");
     } catch (error) {
       const errorMessage = getErrorMessage(error, "Failed to login");
@@ -72,7 +72,9 @@ export default function LoginPage() {
       ) {
         toast.error(errorMessage);
         const joinWaitlist = searchParams.get("joinWaitlist");
-        const verifyUrl = `/verify?email=${encodeURIComponent(data.email)}${joinWaitlist ? "&joinWaitlist=true" : ""}`;
+        const verifyUrl = `/verify?email=${encodeURIComponent(data.email)}${
+          joinWaitlist ? "&joinWaitlist=true" : ""
+        }`;
         router.push(verifyUrl);
       } else {
         toast.error(errorMessage);
@@ -130,5 +132,25 @@ export default function LoginPage() {
         />
       </form>
     </AuthCard>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <AuthCard
+          title="Log in"
+          description="Enter your credentials to access your account"
+        >
+          <div className="space-y-4">
+            <div className="h-10 w-full animate-pulse bg-muted rounded" />
+            <div className="h-10 w-full animate-pulse bg-muted rounded" />
+          </div>
+        </AuthCard>
+      }
+    >
+      <LoginForm />
+    </Suspense>
   );
 }

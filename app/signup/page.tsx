@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,7 +24,7 @@ const signupSchema = z.object({
 
 type SignupFormData = z.infer<typeof signupSchema>;
 
-export default function SignupPage() {
+function SignupForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
@@ -109,5 +109,24 @@ export default function SignupPage() {
         />
       </form>
     </AuthCard>
+  );
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={
+      <AuthCard
+        title="Create an account"
+        description="Enter your information to get started with Ren IDE"
+      >
+        <div className="space-y-4">
+          <div className="h-10 w-full animate-pulse bg-muted rounded" />
+          <div className="h-10 w-full animate-pulse bg-muted rounded" />
+          <div className="h-10 w-full animate-pulse bg-muted rounded" />
+        </div>
+      </AuthCard>
+    }>
+      <SignupForm />
+    </Suspense>
   );
 }
