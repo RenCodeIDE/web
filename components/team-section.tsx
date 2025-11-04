@@ -29,8 +29,8 @@ export function TeamSection() {
             Built by Engineers, for Engineers
           </h2>
           <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-            We've felt the pain of broken workflows and misaligned teams. That's
-            why we're building Ren.
+            We've felt the pain of broken codebases and unending debugging
+            loops. That's why we're building Ren.
           </p>
         </div>
 

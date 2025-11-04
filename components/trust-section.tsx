@@ -78,7 +78,7 @@ export function TrustSection() {
           {[...universities, ...universities].map((uni, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 flex flex-col items-center justify-center opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 rounded-lg px-6 py-4 bg-background gap-3"
+              className="flex-shrink-0 flex flex-col items-center justify-center opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 gap-3"
               style={{ minWidth: `${uni.width}px` }}
             >
               <Image
