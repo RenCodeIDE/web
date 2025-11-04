@@ -5,12 +5,12 @@ export function CopilotMockup() {
         <div className="absolute inset-0 -z-10 rounded-lg bg-accent/10 blur-3xl" />
         <div className="relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-2xl backdrop-blur-sm">
           {/* Mockup header */}
-          <div className="relative z-10 flex items-center justify-between border-b border-border/50 bg-black/60 px-4 py-3 backdrop-blur-md">
+          <div className="relative z-10 flex items-center justify-between border-b border-border/50 bg-muted/50 px-4 py-3 backdrop-blur-md">
             <div className="flex items-center gap-2">
               <div className="flex gap-1.5">
-                <div className="h-3 w-3 rounded-full bg-red-500/80" />
-                <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                <div className="h-3 w-3 rounded-full bg-green-500/80" />
+                <div className="h-3 w-3 rounded-full bg-destructive/80" />
+                <div className="h-3 w-3 rounded-full bg-accent/70" />
+                <div className="h-3 w-3 rounded-full bg-primary/80" />
               </div>
               <span className="ml-4 text-sm font-medium tracking-wide text-foreground/80">
                 REN AI ASSISTANT
@@ -22,7 +22,7 @@ export function CopilotMockup() {
           {/* Mockup content */}
           <div className="relative z-10 grid lg:grid-cols-2">
             {/* Chat panel */}
-            <div className="relative flex flex-col border-r border-border/50 bg-black/30 backdrop-blur-sm">
+            <div className="relative flex flex-col border-r border-border/50 bg-muted/30 backdrop-blur-sm">
               {/* Chat messages - scrollable area */}
               <div className="flex-1 overflow-y-auto p-6">
                 <div className="space-y-4">
@@ -32,7 +32,7 @@ export function CopilotMockup() {
                       <span className="text-sm">👤</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-foreground rounded-lg bg-muted/30 backdrop-blur-sm px-4 py-3 border border-border/30">
+                      <p className="text-sm font-medium text-foreground rounded-lg bg-card/60 backdrop-blur-sm px-4 py-3 border border-border/30">
                         Make my unit tests more precise
                       </p>
                     </div>
@@ -88,7 +88,7 @@ export function CopilotMockup() {
                       </div>
                       <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
                         <div className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-green-500/60" />
+                          <div className="h-1.5 w-1.5 rounded-full bg-primary/60" />
                           <span className="font-mono">
                             Generating unit tests...
                           </span>
@@ -105,7 +105,7 @@ export function CopilotMockup() {
 
                   {/* AI response */}
                   <div className="flex items-start gap-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/30 ring-1 ring-accent/40">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/20 ring-1 ring-primary/40">
                       <svg
                         className="h-4 w-4 text-accent-foreground"
                         viewBox="0 0 24 24"
@@ -119,25 +119,25 @@ export function CopilotMockup() {
                       </svg>
                     </div>
                     <div className="flex-1 space-y-3">
-                      <div className="overflow-hidden rounded-lg border border-border/50 bg-black/90 backdrop-blur-sm">
-                        <div className="border-b border-border/50 bg-black/60 px-3 py-2">
+                      <div className="overflow-hidden rounded-lg border border-border/50 bg-card backdrop-blur-sm">
+                        <div className="border-b border-border/50 bg-muted/50 px-3 py-2">
                           <span className="font-mono text-xs text-muted-foreground">
                             test_module.py
                           </span>
                         </div>
                         <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed">
                           <code>
-                            <div className="text-[#d4d4d4]">
+                            <div className="text-foreground">
                               <span className="text-[#569cd6]">import</span>{" "}
                               <span className="text-[#9cdcfe]">unittest</span>
                             </div>
-                            <div className="text-[#d4d4d4]">
+                            <div className="text-foreground">
                               <span className="text-[#569cd6]">import</span>{" "}
                               <span className="text-[#9cdcfe]">datetime</span>
                             </div>
                             <div></div>
-                            <div className="bg-green-500/10">
-                              <span className="inline-block w-6 select-none text-green-500/60">
+                            <div className="bg-primary/10">
+                              <span className="inline-block w-6 select-none text-primary/70">
                                 +
                               </span>
                               <span className="text-[#569cd6]">class</span>{" "}
@@ -151,8 +151,8 @@ export function CopilotMockup() {
                               <span className="text-[#ce9178]">)</span>
                               <span className="text-[#808080]">:</span>
                             </div>
-                            <div className="bg-green-500/10">
-                              <span className="inline-block w-6 select-none text-green-500/60">
+                            <div className="bg-primary/10">
+                              <span className="inline-block w-6 select-none text-primary/70">
                                 +
                               </span>
                               {"    "}
@@ -165,28 +165,28 @@ export function CopilotMockup() {
                               <span className="text-[#ce9178]">)</span>
                               <span className="text-[#808080]">:</span>
                             </div>
-                            <div className="bg-green-500/10">
-                              <span className="inline-block w-6 select-none text-green-500/60">
+                            <div className="bg-primary/10">
+                              <span className="inline-block w-6 select-none text-primary/70">
                                 +
                               </span>
                               {"        "}
                               <span className="text-[#9cdcfe]">
                                 expenses_string
                               </span>{" "}
-                              <span className="text-[#d4d4d4]">=</span>{" "}
+                              <span className="text-foreground">=</span>{" "}
                               <span className="text-[#ce9178]">
                                 "2023-01-01 -34.01 USD\\n..."
                               </span>
                             </div>
-                            <div className="bg-green-500/10">
-                              <span className="inline-block w-6 select-none text-green-500/60">
+                            <div className="bg-primary/10">
+                              <span className="inline-block w-6 select-none text-primary/70">
                                 +
                               </span>
                               {"        "}
                               <span className="text-[#9cdcfe]">
                                 expected_output
                               </span>{" "}
-                              <span className="text-[#d4d4d4]">=</span>{" "}
+                              <span className="text-foreground">=</span>{" "}
                               <span className="text-[#ce9178]">[(</span>
                               <span className="text-[#4ec9b0]">datetime</span>
                               <span className="text-[#ce9178]">.</span>
@@ -201,8 +201,8 @@ export function CopilotMockup() {
                               <span className="text-[#808080]">,</span>{" "}
                               <span className="text-[#ce9178]">...)]</span>
                             </div>
-                            <div className="bg-green-500/10">
-                              <span className="inline-block w-6 select-none text-green-500/60">
+                            <div className="bg-primary/10">
+                              <span className="inline-block w-6 select-none text-primary/70">
                                 +
                               </span>
                               {"        "}
@@ -226,8 +226,8 @@ export function CopilotMockup() {
                               </span>
                               <span className="text-[#ce9178]">)</span>
                             </div>
-                            <div className="bg-green-500/10">
-                              <span className="inline-block w-6 select-none text-green-500/60">
+                            <div className="bg-primary/10">
+                              <span className="inline-block w-6 select-none text-primary/70">
                                 +
                               </span>
                             </div>
@@ -253,7 +253,7 @@ export function CopilotMockup() {
                               <span className="text-[#9cdcfe]">
                                 expenses_string
                               </span>{" "}
-                              <span className="text-[#d4d4d4]">=</span>{" "}
+                              <span className="text-foreground">=</span>{" "}
                               <span className="text-[#ce9178]">""</span>
                             </div>
                             <div className="bg-green-500/10">
@@ -264,7 +264,7 @@ export function CopilotMockup() {
                               <span className="text-[#9cdcfe]">
                                 expected_output
                               </span>{" "}
-                              <span className="text-[#d4d4d4]">=</span>{" "}
+                              <span className="text-foreground">=</span>{" "}
                               <span className="text-[#ce9178]">[]</span>
                             </div>
                             <div className="bg-green-500/10">
@@ -292,13 +292,13 @@ export function CopilotMockup() {
                               </span>
                               <span className="text-[#ce9178]">)</span>
                             </div>
-                            <div className="bg-red-500/10">
-                              <span className="inline-block w-6 select-none text-red-500/60">
+                            <div className="bg-destructive/10">
+                              <span className="inline-block w-6 select-none text-destructive/70">
                                 -
                               </span>
                             </div>
-                            <div className="bg-red-500/10">
-                              <span className="inline-block w-6 select-none text-red-500/60">
+                            <div className="bg-destructive/10">
+                              <span className="inline-block w-6 select-none text-destructive/70">
                                 -
                               </span>
                               {"    "}
@@ -306,8 +306,8 @@ export function CopilotMockup() {
                                 # Old test implementation
                               </span>
                             </div>
-                            <div className="bg-red-500/10">
-                              <span className="inline-block w-6 select-none text-red-500/60">
+                            <div className="bg-destructive/10">
+                              <span className="inline-block w-6 select-none text-destructive/70">
                                 -
                               </span>
                               {"    "}
@@ -341,7 +341,7 @@ export function CopilotMockup() {
                 </div>
               </div>
 
-              <div className="border-t border-border/50 bg-black/60 p-4 backdrop-blur-md">
+              <div className="border-t border-border/50 bg-muted/50 p-4 backdrop-blur-md">
                 <div className="flex items-center gap-2 rounded-lg border border-border/50 bg-background/80 px-4 py-3 backdrop-blur-sm transition-all hover:border-accent/50">
                   <input
                     type="text"
@@ -356,20 +356,20 @@ export function CopilotMockup() {
             </div>
 
             {/* Code editor panel */}
-            <div className="relative flex flex-col bg-black/50 backdrop-blur-sm">
+            <div className="relative flex flex-col bg-muted/20 backdrop-blur-sm">
               <div className="p-6 pb-4">
                 <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className="rounded-md bg-accent/20 px-2 py-1 font-medium">
+                  <span className="rounded-md bg-primary/15 px-2 py-1 font-medium text-primary">
                     Preview
                   </span>
                   <span className="font-mono">test_module.py</span>
                 </div>
               </div>
               <div className="flex-1 overflow-hidden px-6">
-                <div className="relative h-[540px] overflow-hidden rounded-lg border border-border/50 bg-black/90">
-                  <pre className="flex h-full text-xs leading-relaxed text-foreground/90 font-mono">
+                <div className="relative h-[540px] overflow-hidden rounded-lg border border-border/50 bg-card">
+                  <pre className="flex h-full text-xs leading-relaxed text-foreground font-mono">
                     {/* Line numbers */}
-                    <div className="select-none border-r border-border/30 bg-black/60 px-3 py-4 text-right font-mono text-muted-foreground/60">
+                    <div className="select-none border-r border-border/30 bg-muted/40 px-3 py-4 text-right font-mono text-muted-foreground">
                       {Array.from({ length: 35 }, (_, i) => (
                         <div key={i} className="leading-relaxed">
                           {i + 1}
@@ -378,7 +378,7 @@ export function CopilotMockup() {
                     </div>
                     {/* Code content */}
                     <code className="flex-1 overflow-y-auto overflow-x-auto px-4 py-4">
-                      <div className="text-[#d4d4d4]">
+                      <div className="text-foreground">
                         <div>
                           <span className="text-[#569cd6]">import</span>{" "}
                           <span className="text-[#9cdcfe]">unittest</span>
@@ -416,7 +416,7 @@ export function CopilotMockup() {
                           <span className="text-[#9cdcfe]">
                             expenses_string
                           </span>{" "}
-                          <span className="text-[#d4d4d4]">=</span>{" "}
+                          <span className="text-foreground">=</span>{" "}
                           <span className="text-[#ce9178]">
                             "2023-01-01 -34.01 USD\\n..."
                           </span>
@@ -426,7 +426,7 @@ export function CopilotMockup() {
                           <span className="text-[#9cdcfe]">
                             expected_output
                           </span>{" "}
-                          <span className="text-[#d4d4d4]">=</span>{" "}
+                          <span className="text-foreground">=</span>{" "}
                           <span className="text-[#ce9178]">[(</span>
                           <span className="text-[#4ec9b0]">datetime</span>
                           <span className="text-[#ce9178]">.</span>
@@ -476,7 +476,7 @@ export function CopilotMockup() {
                           <span className="text-[#9cdcfe]">
                             expenses_string
                           </span>{" "}
-                          <span className="text-[#d4d4d4]">=</span>{" "}
+                          <span className="text-foreground">=</span>{" "}
                           <span className="text-[#ce9178]">""</span>
                         </div>
                         <div>
@@ -484,7 +484,7 @@ export function CopilotMockup() {
                           <span className="text-[#9cdcfe]">
                             expected_output
                           </span>{" "}
-                          <span className="text-[#d4d4d4]">=</span>{" "}
+                          <span className="text-foreground">=</span>{" "}
                           <span className="text-[#ce9178]">[]</span>
                         </div>
                         <div>

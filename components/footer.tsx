@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-black/40 backdrop-blur-sm">
+    <footer className="border-t border-border/40 bg-background backdrop-blur-sm">
       <div className="container mx-auto px-6 py-12">
         <div className="flex flex-col items-center justify-center gap-4">
           <div className="flex items-center gap-2">

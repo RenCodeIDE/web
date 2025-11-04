@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function RenHeader() {
   const { user, logout, loading } = useAuth();
@@ -16,7 +17,7 @@ export function RenHeader() {
   };
 
   return (
-    <header className="border-b border-border/40 bg-black/40 backdrop-blur-sm">
+    <header className="border-b border-border/40 bg-background backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -37,6 +38,7 @@ export function RenHeader() {
           </Link>
 
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             {loading ? (
               <div className="h-10 w-20" />
             ) : user ? (
@@ -50,7 +52,7 @@ export function RenHeader() {
                   size="lg"
                   variant="outline"
                   onClick={handleLogout}
-                  className="bg-foreground text-background hover:bg-foreground/90 font-semibold"
+                  className="bg-foreground text-background hover:bg-foreground/90 font-semibold dark:!bg-foreground dark:!text-background dark:hover:!bg-foreground/90"
                 >
                   Log out
                 </Button>
