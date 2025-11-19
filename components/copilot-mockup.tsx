@@ -1,6 +1,6 @@
 export function CopilotMockup() {
   return (
-    <section className="container mx-auto px-6 pb-20 -mt-8">
+    <section className="container mx-auto px-6 pb-20 -mt-8 hidden md:block">
       <div className="relative mx-auto max-w-6xl">
         <div className="absolute inset-0 -z-10 rounded-lg bg-accent/10 blur-3xl" />
         <div className="relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-2xl backdrop-blur-sm">

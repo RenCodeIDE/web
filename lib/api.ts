@@ -143,6 +143,17 @@ class ApiClient {
       }
     );
   }
+
+  async getDailyUsage(params?: {
+    start?: string; // YYYY-MM-DD
+    end?: string;   // YYYY-MM-DD
+  }): Promise<{ start?: string; end?: string; days: Array<{ date: string; totalTokens: number }> }> {
+    const qs = new URLSearchParams();
+    if (params?.start) qs.set("start", params.start);
+    if (params?.end) qs.set("end", params.end);
+    const suffix = qs.toString() ? `?${qs.toString()}` : "";
+    return this.request(`/api/user/usage/daily${suffix}`, { method: "GET" });
+  }
 }
 
 export const api = new ApiClient(API_URL);

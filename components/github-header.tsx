@@ -26,18 +26,19 @@ export function RenHeader() {
               alt="Ren IDE"
               width={32}
               height={32}
-              className="h-8 w-8"
+              className="h-6 w-6 md:h-8 md:w-8"
               style={{
                 background: "transparent",
                 imageRendering: "crisp-edges",
               }}
             />
-            <span className="text-xl font-semibold text-foreground">
+            <span className="text-lg md:text-xl font-semibold text-foreground">
               Ren IDE
             </span>
           </Link>
 
-          <div className="flex items-center gap-3">
+          {/* Desktop actions */}
+          <div className="hidden items-center gap-3 md:flex">
             <ThemeToggle />
             {loading ? (
               <div className="h-10 w-20" />
@@ -73,6 +74,26 @@ export function RenHeader() {
                   </Button>
                 </Link>
               </>
+            )}
+          </div>
+
+          {/* Mobile actions (simplified) */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            {loading ? (
+              <div className="h-8 w-16" />
+            ) : user ? (
+              <Link href="/dashboard">
+                <Button size="sm" className="font-semibold">
+                  Dashboard
+                </Button>
+              </Link>
+            ) : (
+              <Link href="/signup">
+                <Button size="sm" className="font-semibold">
+                  Sign up
+                </Button>
+              </Link>
             )}
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { api } from "@/lib/api";
 import { getErrorMessage } from "@/lib/helpers";
@@ -14,10 +14,38 @@ import {
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { RenHeader } from "@/components/github-header";
+import { UsageHeatmap } from "@/components/usage-heatmap";
 
 export default function DashboardPage() {
   const { user, updateUser } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [usageLoading, setUsageLoading] = useState(false);
+  const [usageError, setUsageError] = useState<string | null>(null);
+  const [usageDays, setUsageDays] = useState<Array<{ date: string; totalTokens: number }>>([]);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchUsage = async () => {
+      if (!user) return;
+      setUsageLoading(true);
+      setUsageError(null);
+      try {
+        // last 365 days by default
+        const res = await api.getDailyUsage();
+        if (!mounted) return;
+        setUsageDays(res.days || []);
+      } catch (err) {
+        if (!mounted) return;
+        setUsageError(getErrorMessage(err, "Failed to load usage"));
+      } finally {
+        if (mounted) setUsageLoading(false);
+      }
+    };
+    fetchUsage();
+    return () => {
+      mounted = false;
+    };
+  }, [user]);
 
   const handleJoinWaitlist = async () => {
     if (!user) return;
@@ -64,6 +92,26 @@ export default function DashboardPage() {
             )}
           </CardContent>
         </Card>
+
+        {user && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Token usage (last 12 months)</CardTitle>
+              <CardDescription>
+                Hover a day to see total used tokens for that date
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {usageLoading ? (
+                <div className="text-sm text-muted-foreground">Loading usage…</div>
+              ) : usageError ? (
+                <div className="text-sm text-destructive">{usageError}</div>
+              ) : (
+                <UsageHeatmap days={usageDays} />
+              )}
+            </CardContent>
+          </Card>
+        )}
 
         {user && (
           <Card>
